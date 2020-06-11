@@ -1,22 +1,24 @@
 import numpy as np
 import csv
-from perceptronSimples import PerceptronSimples
+import random
+from neuralNetwork import NeuralNetwork
+
 
 def init():
     # Leitura do data set
-    data = leitura_csv('data/portaAND_Original.csv')
+    data = leitura_csv('data/XOR_Training.csv')
 
-    # Separar base de treinamento e base de teste
-    treinamento_size = int(200 * 0.8)
-    baseTreinamento = data[0: treinamento_size][:]
-    baseTeste = data[treinamento_size: 200][:]
+    # Fase de Treinamento
+    neuralNetwork = NeuralNetwork(5, len(data[0][0]), len(data[0][1]))
+    for i in range(10000):
+        print('Treinamento: ', i)
+        training_inputs, training_outputs = random.choice(data)
+        neuralNetwork.treinamento(training_inputs, training_outputs)
 
-    # Realizar treinamento
-    perceptronSimples = PerceptronSimples()
-    perceptronSimples.treinamento(baseTreinamento, treinamento_size)
 
-    # Realizar test
-    perceptronSimples.test(baseTeste, (200 - treinamento_size))
+    print('Treinamento concluido')
+    print('Entradas: [0, 0.99] = ', neuralNetwork.feed_forward([0, 0.99]))
+
 
 def leitura_csv(fileName):
     print(f'Leitura do arquivo csv {fileName}')
@@ -24,8 +26,9 @@ def leitura_csv(fileName):
     with open(fileName, 'r') as arquivo_csv:
         leitor = csv.reader(arquivo_csv, delimiter=',')
         for coluna in leitor:
-            data.append([float(coluna[0]), float(coluna[1]), float(coluna[2])])
+            data.append([[float(coluna[0]), float(coluna[1])], [float(coluna[2])]])
     return np.random.permutation(data)
+
 
 init()
 
