@@ -23,7 +23,7 @@ cd src
 python3 __init__.py
 ```
 
-[](https://media.giphy.com/media/3oKIPbOaTdyWc8iUWA/giphy.gif)
+![Cat high five](https://media.giphy.com/media/3oKIPbOaTdyWc8iUWA/giphy.gif)
 
 *Para qualquer sugestão, pode me encotrar pelo email jessykalage@gmail.com.*
 
