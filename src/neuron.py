@@ -22,7 +22,6 @@ class Neuron:
     def squash(self, total_net_input):
         return 1 / (1 + math.exp(-total_net_input))
 
-    # def calculate_pd_error_wrt_total_net_input(self, target_output):
     def calculate_error_with_expected_value(self, target_output):
         return self.calculate_o() * (-(target_output - self.output))
 
