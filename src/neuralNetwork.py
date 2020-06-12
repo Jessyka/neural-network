@@ -29,7 +29,7 @@ class NeuralNetwork:
         hidden_layer_outputs = self.hidden_layer.feed_forward(inputs)
         return self.output_layer.feed_forward(hidden_layer_outputs)
 
-    def treinamento(self, training_inputs, training_outputs):
+    def training(self, training_inputs, training_outputs):
         self.feed_forward(training_inputs)
 
         errors_camada_saida = self.encontre_error_camada_saida(training_outputs)
