@@ -14,7 +14,7 @@ def init():
     # Fase de Treinamento
     print('Iniciando Fase de Treinamento...')
     neuralNetwork = NeuralNetwork(5, len(training_data[0][0]), len(training_data[0][1]))
-    for i in range(1000):
+    for i in range(10000):
         training_inputs, training_outputs = random.choice(training_data)
         neuralNetwork.training(training_inputs, training_outputs)
     print('Treinamento concluido')
@@ -44,11 +44,13 @@ def leitura_csv(fileName):
 def get_training_data(data):
     #Treinamento com 80% da base
     treinamento_size = int(len(data) * 0.8)
+    np.random.shuffle(data)
     return data[0: treinamento_size][:]
 
 def get_test_data(data):
     #Teste com 20% da base
     treinamento_size = int(len(data) * 0.8)
+    np.random.shuffle(data)
     return data[treinamento_size: 200][:]
 
 def is_valid_output(expectedValue, output):
