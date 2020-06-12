@@ -50,7 +50,7 @@ class NeuralNetwork:
     def encontre_error_camada_saida(self, training_outputs):
         erros_camada_saida = [0] * len(self.output_layer.neurons)
         for o in range(len(self.output_layer.neurons)):
-            erros_camada_saida[o] = self.output_layer.neurons[o].calculate_error_with_expected_value(training_outputs[o])
+            erros_camada_saida[o] = self.output_layer.neurons[o].get_error_from_expected_output(training_outputs[o])
 
         return erros_camada_saida
 

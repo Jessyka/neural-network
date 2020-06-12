@@ -1,28 +1,28 @@
 import math
 
 
-class Neuron:
+class Neuronio:
     def __init__(self, bias):
         self.bias = bias
         self.weights = []
         self.inputs = []
         self.output = []
 
-    def calculate_output(self, inputs):
+    def get_output(self, inputs):
         self.inputs = inputs
-        self.output = self.squash(self.calculate_total_net_input())
+        self.output = self.calculate_output(self.calculate_total_sum())
         return self.output
 
-    def calculate_total_net_input(self):
+    def calculate_output(self, total_net_input):
+        return 1 / (1 + math.exp(-total_net_input))
+
+    def calculate_total_sum(self):
         total = 0
         for i in range(len(self.inputs)):
             total += self.inputs[i] * self.weights[i]
         return total + self.bias
 
-    def squash(self, total_net_input):
-        return 1 / (1 + math.exp(-total_net_input))
-
-    def calculate_error_with_expected_value(self, target_output):
+    def get_error_from_expected_output(self, target_output):
         return self.calculate_o() * (-(target_output - self.output))
 
     def calculate_o(self):
