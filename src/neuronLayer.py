@@ -1,5 +1,5 @@
 import random
-from neuronio import Neuronio
+from neuron import Neuron
 
 
 class NeuronLayer:
@@ -8,7 +8,7 @@ class NeuronLayer:
 
         self.neurons = []
         for i in range(num_neurons):
-            self.neurons.append(Neuronio(self.bias))
+            self.neurons.append(Neuron(self.bias))
 
     def feed_forward(self, inputs):
         outputs = []

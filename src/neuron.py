@@ -1,7 +1,7 @@
 import math
 
 
-class Neuronio:
+class Neuron:
     def __init__(self, bias):
         self.bias = bias
         self.weights = []
