@@ -62,7 +62,7 @@ class NeuralNetwork:
         for index in range(len(self.hidden_layer.neurons)):
             for w_index in range(len(self.hidden_layer.neurons[index].weights)):
                 error_weight = error_output_layer[index] * self.hidden_layer.neurons[index].get_input_by_index(w_index)
-                self.hidden_layer.neurons[index].weights[w_index] -= self.LEARNING_RATE * error_weight
+                self.hidden_layer.neurons[index].weights[w_index] -= self.learning_rate * error_weight
 
     def update_output_layer_weights(self, error_hidden_layer):
         for index in range(len(self.output_layer.neurons)):
