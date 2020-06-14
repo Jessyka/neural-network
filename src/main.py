@@ -38,7 +38,10 @@ def leitura_csv(fileName):
     with open(fileName, 'r') as arquivo_csv:
         leitor = csv.reader(arquivo_csv, delimiter=',')
         for coluna in leitor:
-            data.append([[float(coluna[0]), float(coluna[1])], [float(coluna[2])]])
+            input_data = []
+            for index in range(len(coluna) - 1):
+                input_data.append(float(coluna[index]))
+            data.append([input_data, [float(coluna[2])]])
     return np.random.permutation(data)
 
 def get_training_data(data):
