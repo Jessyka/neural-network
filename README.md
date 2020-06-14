@@ -20,7 +20,7 @@ A implementação segue como solução para encontrar saída do operdor XOR:
 
 ```
 cd src
-python3 __init__.py
+python3 main.py
 ```
 
 ![Cat high five](https://media.giphy.com/media/3oKIPbOaTdyWc8iUWA/giphy.gif)
